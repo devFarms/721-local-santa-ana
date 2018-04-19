@@ -26,17 +26,27 @@ var cosaData = (function () {
     return cosaData;
 })();
 
-for ( c = 0; c < cosaData.length; c++){
-    
-    for ( h = 0; h < homeData.length; h++ ){
+for ( h = 0; h < homeData.length; h++ ){
 
+    var nameCounter = 0;
+    
+    for ( c = 0; c < cosaData.length; c++){
+        
+        // var nameChecker = homeData[h].seiu_personal_last_name+homeData[h].seiu_personal_first_name;
+        
         if (homeData[h].seiu_personal_last_name === cosaData[c].seiu_city_email_last_name && homeData[h].seiu_personal_first_name === cosaData[c].seiu_city_email_first_name ){
-                $('#all-people').append('<div class="col s12 l4"><div class="card blue-grey darken-1 sm12 m6 xl3">' + 
+                $('#match').append('<div class="col s12 l4"><div class="card green sm12 m6 xl3">' + 
                 '<div class="card-content white-text"><span class="card-title">' + homeData[h].seiu_personal_first_name + ' ' + homeData[h].seiu_personal_last_name + '</span>' +
-                '<p>' + homeData[h].seiu_personal_email_address + '</p><p>' + cosaData[c].seiu_city_email_email_address + '</p></div></div></div>' )
+                '<p>' + homeData[h].seiu_personal_email_address + '</p><p>' + cosaData[c].seiu_city_email_email_address + '</p><p>&nbsp;</p><p><a class="btn green darken-4">button</a></p></div></div></div>' )
             } else {
-                console.log("No match.")
+                nameCounter++;
+                if (nameCounter === 527){
+                    $('#no-match').append('<div class="col s12 l4"><div class="card red sm12 m6 xl3">' + 
+                    '<div class="card-content white-text"><span class="card-title">' + homeData[h].seiu_personal_first_name + ' ' + homeData[h].seiu_personal_last_name + '</span>' +
+                    '<p><a class="btn red darken-4">button</a></p></div></div></div>');
+                } else { };
         };
 
     };
+
 };
