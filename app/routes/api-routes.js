@@ -27,4 +27,15 @@ module.exports = function(app) {
       res.json(dbHome);
     });
   });
+  // Get rotue for retrieving a single post
+  app.get("/api/home/:seiu_personal_id", function(req, res) {
+    db.Seiu_personal_tbl.findOne({
+      where: {
+        seiu_personal_id: req.params.seiu_personal_id
+      }
+    })
+    .then(function(dbHome) {
+      res.json(dbHome);
+    });
+  });
 };
