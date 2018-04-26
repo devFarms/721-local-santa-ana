@@ -31,7 +31,11 @@ module.exports = function(app) {
   });
 
   app.get("/edit", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+    res.sendFile(path.join(__dirname, "../public/edit.html"));
+  });
+
+  app.get("/csv", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/csv.html"));
   });
 
 };

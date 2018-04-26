@@ -35,15 +35,11 @@ for ( h = 0; h < homeData.length; h++ ){
         // var nameChecker = homeData[h].seiu_personal_last_name+homeData[h].seiu_personal_first_name;
         
         if (homeData[h].seiu_personal_last_name === cosaData[c].seiu_city_email_last_name && homeData[h].seiu_personal_first_name === cosaData[c].seiu_city_email_first_name ){
-                $('#match').append('<a href="/edit?seiu_personal_id=' + homeData[h].seiu_personal_id + '"><div class="col s12 l4"><div class="card green sm12 m6 xl3">' + 
-                '<div class="card-content white-text"><span class="card-title">' + homeData[h].seiu_personal_first_name + ' ' + homeData[h].seiu_personal_last_name + '</span>' +
-                '<p>Work Email: ' + cosaData[c].seiu_city_email_email_address + '</p><p>Work Phone: ' + homeData[h].seiu_personal_work_phone + '</p><p>Personal Email: ' + homeData[h].seiu_personal_email_address + '</p><p>Home phone: ' + homeData[h].seiu_personal_home_phone + '<p>Cell Phone: ' + homeData[h].seiu_personal_cell_phone + '</p><p>Home Address: ' + homeData[h].seiu_personal_home_address + '<p>&nbsp;</p><p></p></div></div></div></a>' )
+                $('#match').append(homeData[h].seiu_personal_last_name + ',' + homeData[h].seiu_personal_first_name + ',' + cosaData[c].seiu_city_email_email_address + ',' + homeData[h].seiu_personal_work_phone + ',' + homeData[h].seiu_personal_email_address + ',' + homeData[h].seiu_personal_home_phone + ',' + homeData[h].seiu_personal_cell_phone + ',' + homeData[h].seiu_personal_home_address + ';<br />' )
             } else {
                 nameCounter++;
                 if (nameCounter === 527){
-                    $('#no-match').append('<div class="col s12 l4"><div class="card red sm12 m6 xl3">' + 
-                    '<div class="card-content white-text"><span class="card-title">' + homeData[h].seiu_personal_first_name + ' ' + homeData[h].seiu_personal_last_name + '</span>' +
-                    '<p>Work Phone: ' + homeData[h].seiu_personal_work_phone + '</p><p>Personal Email: ' + homeData[h].seiu_personal_email_address + '</p><p>Home phone: ' + homeData[h].seiu_personal_home_phone + '<p>Cell Phone: ' + homeData[h].seiu_personal_cell_phone + '</p><p>Home Address: ' + homeData[h].seiu_personal_home_address + '<p>&nbsp;</p><p><button class="edit">Edit</button></p></div></div></div>');
+                    $('#no-match').append(homeData[h].seiu_personal_last_name + ',' + homeData[h].seiu_personal_first_name + ',' + homeData[h].seiu_personal_work_phone + ',' + homeData[h].seiu_personal_email_address + ',' + homeData[h].seiu_personal_home_phone + ',' + homeData[h].seiu_personal_cell_phone + ',' + homeData[h].seiu_personal_home_address + ';<br />');
                 } else { };
         };
 
