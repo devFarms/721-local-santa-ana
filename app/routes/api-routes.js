@@ -28,7 +28,7 @@ module.exports = function(app) {
     });
   });
   // Get rotue for retrieving a single post
-  app.get("/api/home/:seiu_personal_id", function(req, res) {
+  app.get("/api/all/:seiu_personal_id", function(req, res) {
     db.Seiu_personal_tbl.findOne({
       where: {
         seiu_personal_id: req.params.seiu_personal_id

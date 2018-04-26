@@ -17,6 +17,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
+  /*
   app.get("/cosa", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/cosa.html"));
   });
@@ -24,13 +25,13 @@ module.exports = function(app) {
   app.get("/home", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
-
+*/
   app.get("/all", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/all.html"));
   });
 
   app.get("/edit", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/edit.html"));
+    res.sendFile(path.join(__dirname, "../public/cms.html"));
   });
 
 };
