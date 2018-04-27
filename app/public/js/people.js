@@ -14,7 +14,7 @@ var peopleData = (function () {
 
 for ( i = 0; i < peopleData.length; i++ ){
     // console.log(peopleData[i].cosa_seiu_first_name);
-    $('#people').append('<tr><td>' + peopleData[i].cosa_seiu_first_name + ' ' + peopleData[i].cosa_seiu_last_name + '</td><td>' + peopleData[i].cosa_seiu_work_title + '</td><td>' + peopleData[i].cosa_seiu_work_unit + '</td><td><a class="#43a047 green darken-1 btn">Edit</a></td><td><a class="#fff white btn" style="border-radius: 5%; border: 1px solid red; color: red; font-weight: bold;">x</a></td></tr>')
+    $('#people').append('<tr><td>' + peopleData[i].cosa_seiu_first_name + ' ' + peopleData[i].cosa_seiu_last_name + '</td><td>' + peopleData[i].cosa_seiu_work_title + '</td><td>' + peopleData[i].cosa_seiu_work_unit + '</td><td>' + peopleData[i].cosa_seiu_work_location + '<td><a class="light-blue darken-2 btn" href="/edit?cosa_seiu_id=' + peopleData[i].cosa_seiu_id + '"><i class="large material-icons">edit</i></a></td></tr>')
 };
 
 // $(document).on("click", "button.edit", handlePostEdit);
@@ -27,7 +27,7 @@ for ( i = 0; i < peopleData.length; i++ ){
 //       .parent()
 //       .data("post");
 //     // window.location.href = "/edit?post_id=" + currentPost.id;
-//     window.location.href = "/edit?seiu_personal_id=" + currentPerson.seiu_personal_id;
+//     window.location.href = "/edit?cosa_seiu_id=" + currentPerson.cosa_seiu_id;
 //   }
 
 function searchFilter() {
