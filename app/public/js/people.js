@@ -12,11 +12,9 @@ var peopleData = (function () {
     return peopleData;
 })(); 
 
-
 for ( i = 0; i < peopleData.length; i++ ){
     // console.log(peopleData[i].cosa_seiu_first_name);
-    $('#people').append('<div class="col s12 l4"><div class="card green sm12 m6 xl3">' + 
-    '<div class="card-content white-text"><span class="card-title">' + peopleData[i].cosa_seiu_first_name + ' ' + peopleData[i].cosa_seiu_last_name + '</span><p>' + peopleData[i].cosa_seiu_work_email + '<br />' + peopleData[i].cosa_seiu_work_phone + '<br />' + peopleData[i].cosa_seiu_work_title + ' <br />' + peopleData[i].cosa_seiu_work_unit + '<br />' + peopleData[i].cosa_seiu_work_location + '</p><p>' + peopleData[i].cosa_seiu_home_email + '<br />' + peopleData[i].cosa_seiu_home_phone +'<br />' + peopleData[i].cosa_seiu_cell_phone + '<br />' + peopleData[i].cosa_seiu_home_address + '<br />' + peopleData[i].cosa_seiu_home_city + ', ' + peopleData[i].cosa_seiu_home_zip + '</p></div></div></div>')
+    $('#people').append('<tr><td>' + peopleData[i].cosa_seiu_first_name + ' ' + peopleData[i].cosa_seiu_last_name + '</td><td>' + peopleData[i].cosa_seiu_work_title + '</td><td>' + peopleData[i].cosa_seiu_work_unit + '</td><td><a class="#43a047 green darken-1 btn">Edit</a></td><td><a class="#fff white btn" style="border-radius: 5%; border: 1px solid red; color: red; font-weight: bold;">x</a></td></tr>')
 };
 
 // $(document).on("click", "button.edit", handlePostEdit);
@@ -31,3 +29,24 @@ for ( i = 0; i < peopleData.length; i++ ){
 //     // window.location.href = "/edit?post_id=" + currentPost.id;
 //     window.location.href = "/edit?seiu_personal_id=" + currentPerson.seiu_personal_id;
 //   }
+
+function searchFilter() {
+    // Declare variables 
+    var input, filter, table, tr, td, j;
+    input = document.getElementById("autocomplete-input");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (j = 0; j < tr.length; j++) {
+      td = tr[j].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[j].style.display = "";
+        } else {
+          tr[j].style.display = "none";
+        }
+      } 
+    }
+  }
