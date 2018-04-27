@@ -38,4 +38,10 @@ module.exports = function(app) {
       res.json(dbHome);
     });
   });
+  app.get("/api/people", function(req, res) {
+    db.Cosa_seiu_tbl.findAll({}).then(function(dbPeople) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbPeople);
+    });
+  });
 };

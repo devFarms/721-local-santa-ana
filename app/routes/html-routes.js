@@ -38,4 +38,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/csv.html"));
   });
 
+  app.get("/people", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/people.html"));
+  });
+
 };
