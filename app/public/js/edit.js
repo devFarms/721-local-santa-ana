@@ -23,6 +23,34 @@ if (url.indexOf("?cosa_seiu_id=") !== -1) {
    var homeEmail = $("#home_email");
    var homePhone = $("#home_phone");
    var cellPhone = $("#cell_phone");
+
+   // submit scripting //
+   $(cmsForm).on("submit", function handleFormSubmit(event) {
+    event.preventDefault();
+    // Wont submit the post if we are missing a body or a title
+    if (!firstName.val().trim() || !lastName.val().trim()) {
+      return;
+    }
+    // Constructing a newMember object to hand to the database
+    var newMember = {
+      cosa_seiu_first_name: firstName.val().trim(),
+      cosa_seiu_last_name: lastName.val().trim(),
+      // category: postCategorySelect.val() //
+    };
+
+    console.log(newMember);
+
+    // If we're updating a post run updateMember to update a post
+    // Otherwise run submitPost to create a whole new post
+    if (updating) {
+      newMember.id = postId;
+      updateMember(newMember);
+    }
+    else {
+      submitMember(newMember);
+    }
+  });
+  // end submit scripting //
     
     // Gets post data for a post if we're editing
     function getPersonalInfo(cosa_seiu_id) {
@@ -45,5 +73,4 @@ if (url.indexOf("?cosa_seiu_id=") !== -1) {
          }
       });
     }
-
 });

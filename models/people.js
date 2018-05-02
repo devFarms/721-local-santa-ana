@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true,
         },
+        cosa_seiu_employee_number: DataTypes.INTEGER,
         cosa_seiu_last_name: DataTypes.STRING,
         cosa_seiu_first_name: DataTypes.STRING,
         cosa_seiu_middle_name: DataTypes.STRING,

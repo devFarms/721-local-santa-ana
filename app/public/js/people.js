@@ -17,19 +17,6 @@ for ( i = 0; i < peopleData.length; i++ ){
     $('#people').append('<tr><td>' + peopleData[i].cosa_seiu_first_name + ' ' + peopleData[i].cosa_seiu_last_name + '</td><td>' + peopleData[i].cosa_seiu_work_title + '</td><td>' + peopleData[i].cosa_seiu_work_unit + '</td><td>' + peopleData[i].cosa_seiu_work_location + '<td><a class="light-blue darken-2 btn" href="/edit?cosa_seiu_id=' + peopleData[i].cosa_seiu_id + '"><i class="large material-icons">edit</i></a></td></tr>')
 };
 
-// $(document).on("click", "button.edit", handlePostEdit);
-
-//   // This function figures out which person we want to edit and takes it to the
-//   // Appropriate url
-//   function handlePostEdit() {
-//     var currentPerson = $(this)
-//       .parent()
-//       .parent()
-//       .data("post");
-//     // window.location.href = "/edit?post_id=" + currentPost.id;
-//     window.location.href = "/edit?cosa_seiu_id=" + currentPerson.cosa_seiu_id;
-//   }
-
 function searchFilter() {
     // Declare variables 
     var input, filter, table, tr, td, j;

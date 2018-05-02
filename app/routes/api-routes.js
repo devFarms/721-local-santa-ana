@@ -30,4 +30,18 @@ module.exports = function(app) {
       res.json(dbPeople);
     });
   });
+
+  // PUT route for updating posts
+  app.put("/api/people", function(req, res) {
+    db.Cosa_seiu_tbl.update(req.body,
+      {
+        where: {
+          cosa_seiu_id: req.body.cosa_seiu_id
+        }
+      })
+    .then(function(dbPeople) {
+      res.json(dbPeople);
+    });
+  });
+
 };
