@@ -2,55 +2,54 @@ $(document).ready(function() {
 
 // Gets an optional query string from our url (i.e. ?post_id=23)
 var url = window.location.search;
-var postId;
+var memberId;
+
 // Sets a flag for whether or not we're updating a post to be false initially
 var updating = false;
 
 // If we have this section in our url, we pull out the post id from the url
-// In localhost:8080/cms?post_id=1, postId is 1
+// In localhost:3000/edit?post_id=1, postId is 1
 if (url.indexOf("?cosa_seiu_id=") !== -1) {
-  postId = url.split("=")[1];
-  getPersonalInfo(postId);
-  console.log("postID: " + postId);
+  memberId = url.split("=")[1];
+  getPersonalInfo(memberId);
+  console.log("memberId: " + memberId);
 }
+    var empNumber = $("#employee_number");
+    var firstName = $("#first_name");
+    var lastName = $("#last_name");
+    var workEmail = $("#work_email");
+    var workPhone = $("#work_phone");
+    var workTitle = $("#work_title");
+    var streetAddress = $("#street_address");
+    var homeEmail = $("#home_email");
+    var homePhone = $("#home_phone");
+    var cellPhone = $("#cell_phone");
+    // var cmsForm = $("cms_form")
 
-   var firstName = $("#first_name");
-   var lastName = $("#last_name");
-   var workEmail = $("#work_email");
-   var workPhone = $("#work_phone");
-   var workTitle = $("#work_title");
-   var streetAddress = $("#street_address");
-   var homeEmail = $("#home_email");
-   var homePhone = $("#home_phone");
-   var cellPhone = $("#cell_phone");
+    $("#cms_form").on("submit", function handleFormSubmit(event) {
+      event.preventDefault();
+      console.log("button worked")
 
-   // submit scripting //
-   $(cmsForm).on("submit", function handleFormSubmit(event) {
-    event.preventDefault();
-    // Wont submit the post if we are missing a body or a title
-    if (!firstName.val().trim() || !lastName.val().trim()) {
-      return;
-    }
-    // Constructing a newMember object to hand to the database
-    var newMember = {
-      cosa_seiu_first_name: firstName.val().trim(),
-      cosa_seiu_last_name: lastName.val().trim(),
-      // category: postCategorySelect.val() //
-    };
+      var updateMember = {
+        cosa_seiu_employee_number: empNumber.val().trim()
+      }
+      
+      // console.log("updateMember ID: ", updateMember.cosa_seiu_id);
 
-    console.log(newMember);
-
-    // If we're updating a post run updateMember to update a post
-    // Otherwise run submitPost to create a whole new post
-    if (updating) {
-      newMember.id = postId;
-      updateMember(newMember);
-    }
-    else {
-      submitMember(newMember);
-    }
-  });
-  // end submit scripting //
+      function updatePost(updateMember) {
+        console.log("updateMember: ", updateMember);
+        $.ajax({
+          method: "PUT",
+          url: "/api/people",
+          data: post          
+        })
+        .done(function() {
+          window.location.href = "/edit?cosa_seiu_id=", + updateMember.cosa_seiu_id;
+        });
+      }
+      updatePost();
+    });
+    
     
     // Gets post data for a post if we're editing
     function getPersonalInfo(cosa_seiu_id) {
@@ -73,4 +72,34 @@ if (url.indexOf("?cosa_seiu_id=") !== -1) {
          }
       });
     }
-});
+
+
+//     var newMember = {
+//       cosa_seiu_employee_number: empNumber.val().trim()
+//     };
+
+//     if (updating) {
+//       newMember.id = postId;
+//       updateMember(newMember);
+//     }
+//     else {
+//       submitMember(newMember);
+//     }  
+//   });
+
+//   console.log("newMember.id", newMember.id)
+
+  // Update a given post, bring user to the blog page when done
+  // function updateMember(post) {
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "/api/edit",
+  //     data: post
+  //   })
+  //   .done(function() {
+  //     window.location.href = "/people";
+  //   });
+  //   console.log("Post", post)
+  // }
+
+ });

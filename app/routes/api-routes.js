@@ -41,7 +41,9 @@ module.exports = function(app) {
       })
     .then(function(dbPeople) {
       res.json(dbPeople);
-    });
+    }).catch(function(err){
+      console.log(err);
+    })
   });
 
 };

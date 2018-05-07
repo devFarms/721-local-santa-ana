@@ -19,10 +19,25 @@
     <div class="row">
       <div class="col s12">
           <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s12 l4">
               <i class="material-icons prefix">textsms</i>
               <input type="text" id="autocomplete-input" class="autocomplete" onkeyup="searchFilter()">
               <label for="autocomplete-input">Search by name</label>
+            </div>
+
+            <div class="input-field col s12 l4">
+              <input type="text" id="autocomplete-title" class="autocomplete" onkeyup="titleFilter()">
+              <label for="autocomplete-title">Search by title</label>
+            </div>
+
+            <div class="input-field col s12 l2">
+              <input type="text" id="autocomplete-unit" class="autocomplete" onkeyup="unitFilter()">
+              <label for="autocomplete-unit">Search by unit</label>
+            </div>
+
+            <div class="input-field col s12 l2">
+              <input type="text" id="autocomplete-location" class="autocomplete" onkeyup="locationFilter()">
+              <label for="autocomplete-location">Search by location</label>
             </div>
           </div>
         </div>
@@ -31,6 +46,7 @@
       <table id="myTable">
         <thead>
           <tr>
+            <th>Emp. #</th>
             <th>Name</th>
             <th>Title</th>
             <th>Unit</th>
